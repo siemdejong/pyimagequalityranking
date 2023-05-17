@@ -64,6 +64,7 @@ of packages in scientific articles by citing the corresponding papers:
 import sys
 import os
 import datetime
+import PIL
 
 import csv
 import pandas
@@ -78,6 +79,10 @@ def main():
     path = options.working_directory
     file_path = None
     csv_data = None
+
+    if options.trust:
+        PIL.Image.MAX_IMAGE_PIXELS = None
+        print("Ignoring PIL decompression bomb attack warnings.")
 
     print("Mode option is %s" % options.mode)
 

@@ -57,6 +57,13 @@ def get_options(parser):
         default=None,
         help="Define a common string in the files to be analysed"
     )
+    group.add_argument(
+        "--trust",
+        help="Trust the source of the images. "
+             "Ignores decompression bomb attack warnings and errors. "
+             "By default true",
+        action="store_true"
+    )
     return parser
 
 
